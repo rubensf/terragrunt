@@ -99,7 +99,7 @@ type terragruntInputs struct {
 // - locals
 // - include
 func DecodeBaseBlocks(ctx *ParsingContext, file *hclparse.File, includeFromChild *IncludeConfig) (*TrackInclude, *cty.Value, error) {
-	evalParsingContext, err := createTerragruntEvalContext(ctx, file.ConfigPath)
+	evalParsingContext, err := CreateTerragruntEvalContext(ctx, file.ConfigPath)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -216,7 +216,7 @@ func PartialParseConfig(ctx *ParsingContext, file *hclparse.File, includeFromChi
 	}
 	output.IsPartial = true
 
-	evalParsingContext, err := createTerragruntEvalContext(ctx, file.ConfigPath)
+	evalParsingContext, err := CreateTerragruntEvalContext(ctx, file.ConfigPath)
 	if err != nil {
 		return nil, err
 	}
